@@ -13,8 +13,8 @@ def pivotIndex(self, nums: List[int]) -> int:
             return -1
         leftsum,rightsum=0,sum(nums)-nums[0]
         i=0
-        while(leftsum!=rightsum and i!=len(nums)-1):    //循环终止条件：左侧和=右侧和 or 遍历完数组
-            leftsum+=nums[i]                            //注意：and和or不要搞错
+        while(leftsum!=rightsum and i!=len(nums)-1):    # 循环终止条件：左侧和=右侧和 or 遍历完数组
+            leftsum+=nums[i]                            # 注意：and和or不要搞错
             rightsum-=nums[i+1]
             i+=1;
         if leftsum==rightsum:
