@@ -4,6 +4,8 @@
 最后的返回值考虑最后一次循环：  
 当left==right时，mid=left，此时target只可能在mid及其前后位置，若nums[mid]<target，应返回mid+1即left；
 若nums[mid]>target，应插入mid位置，mid及后面的数依次后移，此时right=mid-1，返回left=mid
+*不想考虑返回值，while后可以不带等号，这样退出循环时，left==right*
+
 ## Java
 ```java
 public int searchInsert(int[] nums, int target) {
