@@ -1,15 +1,15 @@
-# [°®³ÔÏã½¶µÄçæçæ](https://leetcode-cn.com/problems/koko-eating-bananas/)
+# [çˆ±åƒé¦™è•‰çš„ç‚ç‚](https://leetcode-cn.com/problems/koko-eating-bananas/)
 
-ËÙ¶ÈÔ½Ğ¡£¬Ê±¼äÔ½³¤£¬ÊÇµ¥µ÷ÉıĞòÁĞ¡£  
-ÕÒÊ±¼äh¶ÔÓ¦µÄkµÄ×ó±ß½ç¡£
+é€Ÿåº¦è¶Šå°ï¼Œæ—¶é—´è¶Šé•¿ï¼Œæ˜¯å•è°ƒå‡åºåˆ—ã€‚  
+æ‰¾æ—¶é—´hå¯¹åº”çš„kçš„å·¦è¾¹ç•Œã€‚
 
 ```java
 public int time(int[] piles, int k) {
-		int t=0;
-		for(int p:piles) {			//×¢ÒâÈ¡ÉÏÕûµÄĞ´·¨
-				t += (p-1)/k+1;
-		}
-		return t;
+	int t=0;
+	for(int p:piles) {	//æ³¨æ„å–ä¸Šæ•´çš„å†™æ³•
+		t += (p-1)/k+1;
+	}
+	return t;
 }
 
 public int minEatingSpeed(int[] piles, int h) {
