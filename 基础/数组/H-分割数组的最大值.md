@@ -44,3 +44,39 @@ public int splitArray(int[] nums, int m) {
 
 [在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)  
 解题方法与上相同
+
+[制作 m 束花所需的最少天数](https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets/)  
+思路相同，给定时间计算能做几束花  
+```java
+    public int bunchNumber(int[] bloomDay, int k, int day) {
+        int bcnum=0, fn=0;
+        for(int b:bloomDay) {
+            if(b<=day) {
+                fn += 1;
+            } else {
+                bcnum+=fn/k;
+                fn=0;
+            }
+        }
+        bcnum+=fn/k;
+        return bcnum;
+    }
+    public int minDays(int[] bloomDay, int m, int k) {
+        if(m*k>bloomDay.length) {
+            return -1;
+        }
+        int l=0,r=0;
+        for(int b:bloomDay) {
+            r = b>r ? b:r;
+        }
+        while(l<r) {
+            int mid=l+(r-l)/2;
+            if(bunchNumber(bloomDay,k,mid)>=m) {
+                r=mid;
+            } else {
+                l=mid+1;
+            }
+        }
+        return r;
+    }
+```
