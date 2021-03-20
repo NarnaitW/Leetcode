@@ -80,3 +80,41 @@ public int splitArray(int[] nums, int m) {
         return r;
     }
 ```
+[小张刷题计划](https://leetcode-cn.com/problems/xiao-zhang-shua-ti-ji-hua/)  
+思路相同，但要把子数组的最大值去掉，再计算和的最大值  
+这时我们划分数组时，不能把最大值加到和里。   
+
+```java
+    public int day(int[] time, int d) {
+        int useday=1,cursum=0,curmax=time[0];
+        for(int i=1;i<time.length;i++) {
+            if(cursum+Math.min(time[i],curmax)<=d) {
+                cursum+=Math.min(time[i],curmax);
+                curmax=Math.max(time[i],curmax);
+            } else {
+                useday+=1;
+                cursum=0;
+                curmax=time[i];
+            }
+        }
+        return useday;
+    }
+    public int minTime(int[] time, int m) {
+        if(m>=time.length) {
+            return 0;
+        }
+        int l=0,r=0;
+        for(int ti:time) {
+            r+=ti;
+        }
+        while(l<r) {
+            int mid=l+(r-l)/2;
+            if(day(time,mid)<=m) {
+                r=mid;
+            } else {
+                l=mid+1;
+            }
+        }
+        return r;
+    }
+```
